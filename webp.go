@@ -48,7 +48,7 @@ func DecodeRGB(data []byte) (m *RGBImage, err error) {
 	return
 }
 
-func DecodeRGBA(data []byte) (m *image.RGBA, err error) {
+func DecodeRGBA(data []byte) (m *image.NRGBA, err error) {
 	pix, w, h, err := webpDecodeRGBA(data)
 	if err != nil {
 		return
@@ -92,7 +92,7 @@ func DecodeRGBToSize(data []byte, width, height int) (m *RGBImage, err error) {
 }
 
 // DecodeRGBAToSize decodes a Gray image scaled to the given dimensions.
-func DecodeRGBAToSize(data []byte, width, height int) (m *image.RGBA, err error) {
+func DecodeRGBAToSize(data []byte, width, height int) (m *image.NRGBA, err error) {
 	pix, err := webpDecodeRGBAToSize(data, width, height)
 	if err != nil {
 		return
