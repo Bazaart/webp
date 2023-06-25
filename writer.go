@@ -86,6 +86,10 @@ func encode(w io.Writer, m image.Image, opt *Options) (err error) {
 			if output, err = EncodeRGBA(m, quality); err != nil {
 				return
 			}
+		case *image.NRGBA:
+			if output, err = EncodeRGBA(m, quality); err != nil {
+				return
+			}
 		default:
 			panic("image/webp: Encode, unreachable!")
 		}
@@ -164,12 +168,12 @@ func toGrayImage(m image.Image) *image.Gray {
 	return gray
 }
 
-func toRGBAImage(m image.Image) *image.RGBA {
-	if m, ok := m.(*image.RGBA); ok {
+func toRGBAImage(m image.Image) *image.NRGBA {
+	if m, ok := m.(*image.NRGBA); ok {
 		return m
 	}
 	b := m.Bounds()
-	rgba := image.NewRGBA(b)
+	rgba := image.NewNRGBA(b)
 	dstColorRGBA64 := &color.RGBA64{}
 	dstColor := color.Color(dstColorRGBA64)
 	for y := b.Min.Y; y < b.Max.Y; y++ {
