@@ -172,6 +172,7 @@ func toGrayImage(m image.Image) *image.Gray {
 
 func toRGBAImage(m image.Image) *image.NRGBA {
 	if m, ok := m.(*image.NRGBA); ok {
+		log.Printf("Not Encoded NRGBA image")
 		return m
 	}
 	b := m.Bounds()
