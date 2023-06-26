@@ -11,7 +11,6 @@ import (
 	"image"
 	"image/color"
 	"io"
-	"log"
 	"os"
 	"reflect"
 )
@@ -40,9 +39,8 @@ func Save(name string, m image.Image, opt *Options) (err error) {
 }
 
 // Encode writes the image m to w in WEBP format.
-func Encode(w io.Writer, m image.Image, opt *Options) (err error, msg string) {
-	log.Printf("WEBP encoding stuff woot woot")
-	return encode(w, m, opt), "woot"
+func Encode(w io.Writer, m image.Image, opt *Options) (err error) {
+	return encode(w, m, opt)
 }
 
 func encode(w io.Writer, m image.Image, opt *Options) (err error) {
@@ -172,7 +170,6 @@ func toGrayImage(m image.Image) *image.Gray {
 
 func toRGBAImage(m image.Image) *image.NRGBA {
 	if m, ok := m.(*image.NRGBA); ok {
-		log.Printf("Not Encoded NRGBA image")
 		return m
 	}
 	b := m.Bounds()
@@ -189,8 +186,6 @@ func toRGBAImage(m image.Image) *image.NRGBA {
 			rgba.Set(x, y, dstColor)
 		}
 	}
-
-	log.Printf("Encoded NRGBA image")
 
 	return rgba
 }
