@@ -189,5 +189,7 @@ func toRGBAImage(m image.Image) *image.NRGBA {
 		}
 	}
 
+	log.Printf("Encoded NRGBA image")
+
 	return rgba
 }
