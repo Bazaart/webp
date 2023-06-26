@@ -174,7 +174,7 @@ func toRGBAImage(m image.Image) *image.NRGBA {
 	}
 	b := m.Bounds()
 	rgba := image.NewNRGBA(b)
-	dstColorRGBA64 := &color.RGBA64{}
+	dstColorRGBA64 := &color.NRGBA64{}
 	dstColor := color.Color(dstColorRGBA64)
 	for y := b.Min.Y; y < b.Max.Y; y++ {
 		for x := b.Min.X; x < b.Max.X; x++ {
