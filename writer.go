@@ -40,7 +40,7 @@ func Save(name string, m image.Image, opt *Options) (err error) {
 }
 
 // Encode writes the image m to w in WEBP format.
-func Encode(w io.Writer, m image.Image, opt *Options) (err error, msg) {
+func Encode(w io.Writer, m image.Image, opt *Options) (err error, msg string) {
 	log.Printf("WEBP encoding stuff woot woot")
 	return encode(w, m, opt), "woot"
 }
