@@ -11,7 +11,6 @@ import (
 	"image"
 	"image/color"
 	"io"
-	"log"
 	"os"
 	"reflect"
 )
@@ -188,6 +187,5 @@ func toRGBAImage(m image.Image) *image.NRGBA {
 		}
 	}
 
-	log.Println("woot woot")
 	return rgba
 }
